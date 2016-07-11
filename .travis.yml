@@ -26,8 +26,7 @@ env:
 
 install:
     - sh tests/fannie/travis-init.sh
-    - sh tests/pos/travis-init.sh
-    - composer init -n
+    - composer install
     - composer require codeclimate/php-test-reporter johnkary/phpunit-speedtrap
     - mkdir -p build/logs
     - npm install acorn

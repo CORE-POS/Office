@@ -1,9 +1,9 @@
 {
-    "name": "core-pos/core-pos",
-    "description": "A Point of Sale System for Co-ops",
+    "name": "core-pos/office",
+    "description": "CORE-POS backend management and reporting suite",
     "license": "GPL2",
     "type": "package",
-    "homepage": "https://github.com/CORE-POS/IS4C",
+    "homepage": "https://github.com/CORE-POS/Office",
     "authors": [
         {
             "name": "Andy Theuninck",
@@ -13,9 +13,10 @@
     "support": {
         "issues": "https://github.com/CORE-POS/IS4C/issues",
         "wiki": "https://github.com/CORE-POS/IS4C/wiki",
-        "source": "https://github.com/CORE-POS/IS4C"
+        "source": "https://github.com/CORE-POS/Office"
     },
     "require": {
+        "corepos/common-bundle": "^1.0",
         "components/jquery": "1.11.1",
         "components/bootstrap": "3.2.*",
         "components/bootstrap-default": "~3.2",

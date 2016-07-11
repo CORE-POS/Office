@@ -3,9 +3,6 @@
         <log type="coverage-clover" target="build/logs/clover.xml"/>
     </logging>
     <testsuites>
-        <testsuite name="common">
-            <file>tests/common/WhiteSpaceTest.php</file>
-        </testsuite>
         <testsuite name="main">
             <file>tests/fannie/InstallFannieTest.php</file>
             <file>tests/fannie/ApiLibTest.php</file>
@@ -23,40 +20,13 @@
             <file>tests/fannie/TasksTest.php</file>
             <file>tests/fannie/WebServicesTest.php</file>
             <file>tests/fannie/ConfigFannieTest.php</file>
-
-            <file>tests/common/CommonTest.php</file>
-
-            <file>tests/pos/InstallTest.php</file>
-            <file>tests/pos/AdminLoginTest.php</file>
-            <file>tests/pos/AjaxTest.php</file>
-            <file>tests/pos/BaseLibsTest.php</file>
-            <file>tests/pos/DisplayTest.php</file>
-            <file>tests/pos/FooterBoxesTest.php</file>
-            <file>tests/pos/KickersTest.php</file>
-            <file>tests/pos/LocalStorageTest.php</file>
-            <file>tests/pos/PagesTest.php</file>
-            <file>tests/pos/ParsersTest.php</file>
-            <file>tests/pos/PluginsTest.php</file>
-            <file>tests/pos/PosModelsTest.php</file>
-            <file>tests/pos/PrintHandlersTest.php</file>
-            <file>tests/pos/ReceiptTest.php</file>
-            <file>tests/pos/SQLManagerTest.php</file>
-            <file>tests/pos/ScaleTest.php</file>
-            <file>tests/pos/ScanningTest.php</file>
-            <file>tests/pos/SearchTest.php</file>
-            <file>tests/pos/TendersTest.php</file>
-            <file>tests/pos/TotalActionsTest.php</file>
         </testsuite>
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">common</directory>
             <directory suffix=".php">fannie</directory>
-            <directory suffix=".php">pos/is4c-nf</directory>
-            <directory suffix=".php">pos/is4c-nf/plugins/Paycards/</directory>
             <exclude>
                 <directory>vendor</directory>
-                <directory>common/adodb5</directory>
                 <directory>fannie/legacy</directory>
                 <directory>fannie/install/LaneConfigPages/extra_directory_layer</directory>
                 <directory>fannie/install/LaneConfigPages/lane_install</directory>
@@ -70,10 +40,6 @@
                 <directory>fannie/src/Excel</directory>
                 <directory>fannie/src/fpdf</directory>
                 <directory>fannie/sync/special</directory>
-                <directory>pos/is4c-nf/ajax-callbacks/</directory>
-                <file>pos/is4c-nf/lib/Scanning/SpecialUPCs/HouseCoupon.php</file>
-                <directory>pos/is4c-nf/plugins</directory>
-                <directory>pos/is4c-nf/test</directory>
                 <directory suffix="index.php">.</directory>
                 <file>fannie/classlib2.0/data/SpeedTestReport.php</file>
                 <file>fannie/cron/arbalance.sanitycheck.php</file>
@@ -107,7 +73,6 @@
                 <file>fannie/cron/nightly.virtualcoupon.php</file>
                 <file>fannie/cron/nightly.voidhistory.php</file>
                 <file>fannie/cron/weekly.spins.php</file>
-                <file>pos/is4c-nf/parser-class-lib/preparse/WFCFixup.php</file>
             </exclude>
         </whitelist>
     </filter>

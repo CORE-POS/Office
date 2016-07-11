@@ -5,8 +5,6 @@ languages:
   PHP: true
   Python: true
 exclude_paths:
-- "common/adodb5/*"
-- "documentation/doxy/*"
 - "fannie/legacy/*"
 - "fannie/src/javascript/*"
 - "fannie/src/fpdf/*"

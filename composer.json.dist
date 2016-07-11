@@ -16,7 +16,7 @@
         "source": "https://github.com/CORE-POS/Office"
     },
     "require": {
-        "corepos/common-bundle": "^1.0",
+        "corepos/common-bundle": "^2.0",
         "components/jquery": "1.11.1",
         "components/bootstrap": "3.2.*",
         "components/bootstrap-default": "~3.2",

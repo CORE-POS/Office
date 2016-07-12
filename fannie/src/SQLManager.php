@@ -33,7 +33,7 @@
 if (!class_exists('FannieAPI')) {
     include(dirname(__FILE__) . '/../classlib2.0/FannieAPI.php');
 }
-if (!class_exists('\\COREPOS\\common\\SQLManager', false)) {
+if (!class_exists('\\COREPOS\\common\\SQLManager')) {
     include(dirname(__FILE__) . '/../../common/SQLManager.php');
 }
 

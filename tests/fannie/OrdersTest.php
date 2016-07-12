@@ -1,5 +1,9 @@
 <?php
 
+if (!class_exists('OrderItemLib')) {
+    include(__DIR__ . '/../../fannie/ordering/OrderItemLib.php');
+}
+
 /**
  * @backupGlobals disabled
  */
@@ -11,6 +15,7 @@ class OrdersTest extends PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $item);
         $item['normal_price'] = 10;
         $item['cost'] = 1;
+        $item['priceRuleTypeID'] = 0;
         $is_member = array(
             'type' => 'markdown',
             'amount' => 0.10,

@@ -180,6 +180,7 @@ class ItemsTest extends PHPUnit_Framework_TestCase
 
     public function testScaleLibs()
     {
+        $config = FannieConfig::factory();
         $connection = FannieDB::get($config->OP_DB);
         $obj = new ServiceScalesModel($connection); 
         $item_info = array(

@@ -140,7 +140,7 @@ class CoopDealsUploadPage extends \COREPOS\Fannie\API\FannieUploadPage
         $col_max = max($indexes);
         foreach ($linedata as $data) {
             if (!is_array($data)) continue;
-            if (count($data) < $max) continue;
+            if (count($data) < $col_max) continue;
 
             $upc = str_replace("-","",$data[$indexes['upc']]);
             $upc = str_replace(" ","",$upc);

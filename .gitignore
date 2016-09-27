@@ -21,7 +21,3 @@ fannie/locale/*.pot
 *.exe
 fannie/INSTALL
 vendor
-composer.json
-composer.lock
-TestPage
-saveTestInfo.php

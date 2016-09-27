@@ -26,7 +26,6 @@ env:
 
 install:
     - sh tests/fannie/travis-init.sh
-    - cp composer.json.dist composer.json
     - composer install --no-dev
     - composer require --update-no-dev codeclimate/php-test-reporter johnkary/phpunit-speedtrap
     - mkdir -p build/logs

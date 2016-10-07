@@ -675,12 +675,20 @@ HTML;
                 callback:function(){
                     \$('#department{$store_id}').trigger('chosen:updated');
                     baseItem.chainSubs({$store_id});
+                    var opts = $('#department{$store_id}').html();
+                    $('.chosen-dept').each(function(i, e) {
+                        if (e.id != 'department{$store_id}') {
+                            $(e).html(opts);
+                            $(e).trigger('chosen:updated');
+                            baseItem.chainSubs(e.id.substring(10));
+                        }
+                    });
                 }
             });">
             {$superOpts}
         </select>
         <select name="department[]" id="department{$store_id}" 
-            class="form-control chosen-select syncable-input" 
+            class="form-control chosen-select chosen-dept syncable-input"
             onchange="baseItem.chainSubs({$store_id});">
             {$deptOpts}
         </select>
@@ -728,7 +736,7 @@ HTML;
         &nbsp;&nbsp;&nbsp;&nbsp;
         <label>InUse
         <input type="checkbox" value="{$store_id}" name="prod-in-use[]" 
-            class="in-use-checkbox syncable-checkbox" {$inUseCheck} 
+            class="in-use-checkbox" {$inUseCheck} 
             onchange="$('#extra-in-use-checkbox').prop('checked', $(this).prop('checked'));" />
         </label>
         </td>

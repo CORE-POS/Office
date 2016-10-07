@@ -222,16 +222,16 @@
         },
         {
             "name": "corepos/common-bundle",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CORE-POS/Common-Bundle.git",
-                "reference": "0b5b3eb58fd93b5f6087556b2780010be44a898d"
+                "reference": "83fea0f0fbccaeacacf091ba3dba7f8ea80d1376"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CORE-POS/Common-Bundle/zipball/0b5b3eb58fd93b5f6087556b2780010be44a898d",
-                "reference": "0b5b3eb58fd93b5f6087556b2780010be44a898d",
+                "url": "https://api.github.com/repos/CORE-POS/Common-Bundle/zipball/83fea0f0fbccaeacacf091ba3dba7f8ea80d1376",
+                "reference": "83fea0f0fbccaeacacf091ba3dba7f8ea80d1376",
                 "shasum": ""
             },
             "require-dev": {
@@ -248,7 +248,7 @@
                 "GPLv2"
             ],
             "description": "Common libraries for CORE-POS",
-            "time": "2016-07-08 16:04:25"
+            "time": "2016-09-27 16:03:10"
         },
         {
             "name": "corepos/composer-installer",

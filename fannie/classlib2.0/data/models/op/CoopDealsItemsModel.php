@@ -35,6 +35,7 @@ class CoopDealsItemsModel extends BasicModel
     'dealSet' => array('type'=>'VARCHAR(25)', 'index'=>true),
     'upc' => array('type'=>'VARCHAR(13)', 'index'=>true),
     'price' => array('type'=>'MONEY'),
+    'cost' => array('type'=>'MONEY'),
     'abtpr' => array('type'=>'VARCHAR(3)'),
     'multiplier' => array('type'=>'INT', 'default'=>1),
     );

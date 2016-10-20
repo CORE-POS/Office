@@ -33,7 +33,6 @@ class CoopDealsReviewPage extends FanniePage
 
     public $description = '[Co+op Deals Review] lists the currently load Co+op Deals data
     and can create sales batches from that data.';
-    public $themed = true;
 
     protected $auth_classes = array('batches');
     protected $must_authenticate = true;
@@ -79,11 +78,14 @@ class CoopDealsReviewPage extends FanniePage
 
         list($upcIn, $args) = $dbc->safeInClause($upcs);
         $args[] = $set;
+        $table = $dbc->tableDefinition('CoopDealsItems');
+        $colCost = isset($table['cost']) ? 't.cost' : '0 AS cost';
 
         $saleItemsP = $dbc->prepare("
             SELECT t.upc,
                 t.price,
                 t.multiplier,"
+                . $colCost . ','
                 . $dbc->concat(
                     ($superdept_grouping ? $superdept_grouping : "''"),
                     ($superdept_grouping ? "' '" : "''"),
@@ -145,6 +147,7 @@ class CoopDealsReviewPage extends FanniePage
             $list->batchID($id);
             $list->salePrice(sprintf("%.2f",$row['price']));
             $list->signMultiplier($row['multiplier']);
+            $list->saleCost($row['cost']);
             $list->save();
         }
 

@@ -59,6 +59,10 @@ class CoopDealsUploadPage extends \COREPOS\Fannie\API\FannieUploadPage
             'display_name' => 'Line Notes',
             'default' => 15,
         ),
+        'cost' => array(
+            'display_name' => 'Cost',
+            'default' => 9999,
+        ),
     );
 
     private function setupTables($dbc)
@@ -73,7 +77,7 @@ class CoopDealsUploadPage extends \COREPOS\Fannie\API\FannieUploadPage
         }
     }
 
-    private function prepStatements($dbc)
+    private function prepStatements($dbc, $saveCosts)
     {
         $upcP = $dbc->prepare('SELECT upc FROM products WHERE upc=? AND inUse=1');
         $skuP = $dbc->prepare('
@@ -87,6 +91,13 @@ class CoopDealsUploadPage extends \COREPOS\Fannie\API\FannieUploadPage
                 (dealSet, upc, price, abtpr, multiplier)
             VALUES
                 (?, ?, ?, ?, ?)');
+        if ($saveCosts) {
+            $insP = $dbc->prepare('
+                INSERT INTO CoopDealsItems 
+                    (dealSet, upc, price, abtpr, multiplier, cost)
+                VALUES
+                    (?, ?, ?, ?, ?, ?)');
+        }
 
         return array($upcP, $skuP, $insP);
     }
@@ -149,7 +160,9 @@ class CoopDealsUploadPage extends \COREPOS\Fannie\API\FannieUploadPage
         $month = FormLib::get('deal-month', 'not specified');
         $delP = $dbc->prepare('DELETE FROM CoopDealsItems WHERE dealSet=?');
         $dbc->execute($delP, array($month));
-        list($upcP, $skuP, $insP) = $this->prepStatements($dbc);
+        $table = $dbc->tableDefinition('CoopDealsItems');
+        $saveCosts = isset($table['cost']);
+        list($upcP, $skuP, $insP) = $this->prepStatements($dbc, $saveCosts);
 
         $rm_checks = (FormLib::get_form_value('rm_cds') != '') ? True : False;
         $col_max = max($indexes);
@@ -174,6 +187,7 @@ class CoopDealsUploadPage extends \COREPOS\Fannie\API\FannieUploadPage
                     $mult = $matches[1];
                 }
             }
+            $cost = ($indexes['cost'] !== false) ? $cost = $data[$indexes['cost']] : 0;
 
             $price = trim($data[$indexes['price']],"\$");
             foreach ($this->dealTypes($data[$indexes['abt']]) as $type){
@@ -182,7 +196,11 @@ class CoopDealsUploadPage extends \COREPOS\Fannie\API\FannieUploadPage
             $linked = $this->checkScaleItem($dbc, $upc);
             if ($linked) {
                 foreach ($this->dealTypes($data[$indexes['abt']]) as $type){
-                    $dbc->execute($insP,array($month,$linked,$price,$type,$mult));
+                    $args = array($month, $linked, $price, $type, $mult);
+                    if ($saveCosts) {
+                        $args[] = $cost;
+                    }
+                    $dbc->execute($insP,$args);
                 }
             }
         }

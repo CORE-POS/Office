@@ -54,6 +54,7 @@ class SalesBatchTask extends FannieTask
                     b.endDate, 
                     b.discounttype
                     ' . (isset($b_def['transLimit']) ? ',b.transLimit' : ',0 AS transLimit') . '
+                    ' . (isset($t_def['saleCost']) ? ',l.saleCost' : ',0 AS saleCost') . '
                   FROM batches AS b
                     INNER JOIN batchList AS l ON b.batchID = l.batchID
                   WHERE b.discounttype <> 0
@@ -110,6 +111,7 @@ class SalesBatchTask extends FannieTask
             }
             $specialquantity = $row['quantity'];
             $special_limit = $row['transLimit'];
+            $special_cost = $row['saleCost'];
             $start_date = $row['startDate'];
             $end_date = $row['endDate'];
             $discounttype = $row['discounttype'];
@@ -190,6 +192,10 @@ class SalesBatchTask extends FannieTask
                 if ($product->special_limit() != $special_limit) {
                     $changed = true;
                     $product->special_limit($special_limit);
+                }
+                if ($product->special_cost() != $special_cost) {
+                    $changed = true;
+                    $product->special_cost($special_cost);
                 }
                 if ($product->start_date() != $start_date) {
                     $changed = true;

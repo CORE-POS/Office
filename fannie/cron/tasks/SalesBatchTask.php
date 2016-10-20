@@ -255,6 +255,7 @@ class SalesBatchTask extends FannieTask
             $product->special_price(0);
             $product->specialgroupprice(0);
             $product->specialquantity(0);
+            $product->special_cost(0);
             $product->start_date('');
             $product->end_date('');
             $product->batchID(0);

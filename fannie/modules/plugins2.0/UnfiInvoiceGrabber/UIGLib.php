@@ -179,7 +179,7 @@ class UIGLib
         if (strtoupper($caseSize) == 'CS') {
             $dbc = FannieDB::get($FANNIE_OP_DB);
             $vmodel = new VendorItemsModel($dbc);
-            $vmodel->sku($line[$SKU]);
+            $vmodel->sku(str_pad($line[$SKU], 7, '0', STR_PAD_LEFT));
             $vmodel->vendorID($vendorID);
             $vmodel->load();
             if ($vmodel->units() != '') {
@@ -194,7 +194,6 @@ class UIGLib
                     }
                 }
             }
-
         } 
 
         // never found a valid size
@@ -207,7 +206,7 @@ class UIGLib
             'quantity' => $line[$ORDERQTY],
             'unitCost' => $line[$UNITCOST],
             'caseSize' => $caseSize,
-            'receivedQty' => $line[$RECVQTY],
+            'receivedQty' => $line[$RECVQTY] * $caseSize,
             'receivedTotalCost' => $line[$TOTALCOST],
             'unitSize' => $line[$UNITSIZE],
             'brand' => $line[$BRAND],

@@ -735,7 +735,6 @@ HTML;
                 $query = substr($query, 0, strlen($query)-1) . ') ';
                 break;
         }
-        var_dump($store);
 
         return array('query'=>$query, 'args'=>$args);
     }

@@ -164,6 +164,7 @@ class SaReportPage extends FanniePage {
                 LEFT JOIN {$OPDB}vendors AS b ON a.vendorID=b.vendorID
                 LEFT JOIN {$OPDB}vendorDepartments AS c ON a.vendorID=c.vendorID AND a.vendorDept=c.deptID
             WHERE clear!=1
+                AND s.upc=?
                 AND s.storeID=?
             ORDER BY ".$order);
         $r=$dbc->execute($q, array($this->store));

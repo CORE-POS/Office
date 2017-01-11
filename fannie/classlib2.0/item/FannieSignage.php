@@ -43,6 +43,7 @@ class FannieSignage
     protected $overrides = array();
     protected $excludes = array();
     protected $in_use_filter = 0;
+    protected $repeats = 1;
 
     protected $width;
     protected $height;
@@ -86,6 +87,11 @@ class FannieSignage
     public function setInUseFilter($store)
     {
         $this->in_use_filter = $store;
+    }
+
+    public function setRepeats($repeats)
+    {
+        $this->repeats = $repeats;
     }
 
     protected function getDB()
@@ -196,7 +202,7 @@ class FannieSignage
             if (!isset($row['signCount']) || $row['signCount'] < 0) {
                 $row['signCount'] = 1;
             }
-            for ($i=0; $i<$row['signCount']; $i++) {
+            for ($i=0; $i<$row['signCount']*$this->repeats; $i++) {
                 $data[] = $row;
             }
 

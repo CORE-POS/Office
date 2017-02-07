@@ -35,7 +35,7 @@
         "corepos/composer-installer": "^1.0",
         "twig/twig": "^1.25",
         "twig/extensions": "^1.4",
-        "corepos/common-bundle": "^2.0",
+        "corepos/common-bundle": "^2.1",
         "codeclimate/php-test-reporter": "^0.3.2"
     },
     "require-dev": {

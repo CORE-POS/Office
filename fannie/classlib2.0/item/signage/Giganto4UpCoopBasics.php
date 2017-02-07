@@ -23,10 +23,10 @@
 
 namespace COREPOS\Fannie\API\item\signage {
 
-class Giganto4UpP extends \COREPOS\Fannie\API\item\FannieSignage 
+class Giganto4UpCoopBasics extends \COREPOS\Fannie\API\item\FannieSignage 
 {
 
-    protected $BIG_FONT = 130;
+    protected $BIG_FONT = 110;
     protected $MED_FONT = 18;
     protected $SMALL_FONT = 14;
     protected $SMALLER_FONT = 11;
@@ -65,16 +65,16 @@ class Giganto4UpP extends \COREPOS\Fannie\API\item\FannieSignage
 
             $pdf->SetXY($this->left + ($this->width*$column), $this->top + ($row*$this->height));
             $pdf->SetFont($this->font, 'B', $this->SMALL_FONT);
-            $pdf->Cell($effective_width, 10, strtoupper($item['brand']), 0, 1, 'C');
+            $pdf->Cell($effective_width, 25, strtoupper($item['brand']), 0, 1, 'C');
             $pdf->SetX($this->left + ($this->width*$column));
             $pdf->SetFont($this->font, '', $this->MED_FONT);
             $item['description'] = str_replace("\r", '', $item['description']);
-            $pdf->Cell($effective_width, 6, str_replace("\n", '', $item['description']), 0, 1, 'C');
+            $pdf->Cell($effective_width, -12, str_replace("\n", '', $item['description']), 0, 1, 'C');
 
             $pdf->SetX($this->left + ($this->width*$column));
             $pdf->SetFont($this->alt_font, '', $this->SMALLER_FONT);
             $item['size'] = $this->formatSize($item['size'], $item);
-            $pdf->Cell($effective_width, 6, $item['size'], 0, 1, 'C');
+            $pdf->Cell($effective_width, 22, $item['size'], 0, 1, 'C');
 
             $pdf->SetXY($this->left + ($this->width*$column), $this->top + ($row*$this->height) + 35);
             $pdf->SetFont($this->font, '', $this->BIG_FONT);
@@ -109,7 +109,7 @@ class Giganto4UpP extends \COREPOS\Fannie\API\item\FannieSignage
             $sign++;
         }
 
-        $pdf->Output('Giganto4UpP.pdf', 'I');
+        $pdf->Output('Giganto4UpCoopBasics.pdf', 'I');
     }
 }
 

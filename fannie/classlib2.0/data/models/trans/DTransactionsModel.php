@@ -268,8 +268,6 @@ class DTransactionsModel extends BasicModel
             }
         }
         $source = $this->connection->tableDefinition($table_name);
-
-        $source = $this->connection->tableDefinition($table_name);
         $dbms = $this->connection->dbmsName();
 
         $sql = 'CREATE VIEW '.$this->identifierEscape($dbms, $view_name).' AS '

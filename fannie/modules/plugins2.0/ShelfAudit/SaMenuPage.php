@@ -72,11 +72,9 @@ input[type="submit"] {
 <a class="btn btn-default btn-lg"
     href="../../../item/handheld/ItemStatusPage.php" />Price Check</a>
 <hr />
-<a class="btn btn-default btn-lg"
-    href="SaOrderingPage.php" />Ordering Info</a>
+<a class="btn btn-default btn-lg" type="submit"
+    href="../../../purchasing/EditOnePurchaseOrder.php" />Create Order</a>
 <hr />
-<a class="btn btn-default btn-lg"
-    href="../../../item/mapping/index.php" />Shelf Location</a>
 </p>
 </body>
 </html>

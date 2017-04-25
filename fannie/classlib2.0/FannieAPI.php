@@ -175,7 +175,6 @@ class FannieAPI
     static private function loadFromNamespace($class)
     {
         $namespaces = array(
-            'COREPOS\\common\\' => dirname(__FILE__) . '/../../common/',
             'COREPOS\\Fannie\\API\\' => dirname(__FILE__) . '/',
             'COREPOS\\Fannie\\Plugin\\' => dirname(__FILE__) . '/../modules/plugins2.0/',
         );

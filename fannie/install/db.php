@@ -21,9 +21,7 @@
 
 *********************************************************************************/
 
-if (function_exists('duplicate_structure')) {
-    return;
-}
+if (!function_exists('duplicate_structure')) {
 
 /* query to create another table with the same
     columns
@@ -69,5 +67,7 @@ function dropDeprecatedStructure($con, $db_name, $table_name, $is_view=true)
     }
 
     return $ret;
+}
+
 }
 

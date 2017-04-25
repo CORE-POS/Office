@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "314de86f5ad0c5c302315a111d66d5fd",
+    "content-hash": "0f195254e262cfd4613cb42fa17405cf",
     "packages": [
         {
             "name": "codeclimate/php-test-reporter",
@@ -221,16 +221,16 @@
         },
         {
             "name": "corepos/common-bundle",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CORE-POS/Common-Bundle.git",
-                "reference": "9c436044daba74dbe59ce9802b20db6f85e59ca0"
+                "reference": "ceb01d231ac6c53577fde830362780c674bbebff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CORE-POS/Common-Bundle/zipball/9c436044daba74dbe59ce9802b20db6f85e59ca0",
-                "reference": "9c436044daba74dbe59ce9802b20db6f85e59ca0",
+                "url": "https://api.github.com/repos/CORE-POS/Common-Bundle/zipball/ceb01d231ac6c53577fde830362780c674bbebff",
+                "reference": "ceb01d231ac6c53577fde830362780c674bbebff",
                 "shasum": ""
             },
             "require-dev": {
@@ -247,7 +247,7 @@
                 "GPLv2"
             ],
             "description": "Common libraries for CORE-POS",
-            "time": "2017-04-17T16:40:53+00:00"
+            "time": "2017-04-25T19:49:53+00:00"
         },
         {
             "name": "corepos/composer-installer",

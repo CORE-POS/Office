@@ -50,9 +50,6 @@ class FannieAPI
     static private function session()
     {
         if (self::$namedSession === null) {
-            if (!class_exists('COREPOS\\common\\NamedSession', false)) {
-                include(__DIR__ . '/../../common/NamedSession.php');
-            }
             $path = realpath(__DIR__ . '/../');
             self::$namedSession = new COREPOS\common\NamedSession($path);
         }
@@ -456,9 +453,9 @@ class FannieAPI
     }
 }
 
-FannieAPI::init();
-spl_autoload_register(array('FannieAPI','loadClass'), true, true);
 if (file_exists(dirname(__FILE__) . '/../../vendor/autoload.php')) {
     include_once(dirname(__FILE__) . '/../../vendor/autoload.php');
 }
+FannieAPI::init();
+spl_autoload_register(array('FannieAPI','loadClass'), true, true);
 

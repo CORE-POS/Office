@@ -26,7 +26,7 @@ include($FANNIE_ROOT.'classlib2.0/FannieAPI.php');
 
 class VotenetReport extends FannieReportPage
 {
-    protected $report_headers = array('User Name', 'Password', 'First Name', 'Last Name', 'Email Address');
+    protected $report_headers = array('User Name', 'Password', 'First Name', 'Last Name', 'Address', 'Address2', 'City', 'State', 'Zip', 'Email Address');
 
     public function fetch_report_data()
     {
@@ -37,7 +37,11 @@ class VotenetReport extends FannieReportPage
             SELECT c.CardNo,
                 c.FirstName,
                 c.LastName,
-                m.email_1
+                m.email_1,
+                m.street,
+                m.city,
+                m.state,
+                m.zip 
             FROM custdata AS c
                 LEFT JOIn meminfo AS m ON c.CardNo=m.card_no
             WHERE c.personNum=1
@@ -51,11 +55,25 @@ class VotenetReport extends FannieReportPage
         $data = array();
 
         while ($w = $dbc->fetch_row($r)) {
+            /*
+            $addr2 = '';
+            $addr1 = $w['street'];
+            if (strstr($addr1, "\n")) {
+                list($addr1, $addr2) = explode("\n", $addr1, 2);
+            }
+            */
             $record = array(
                 str_pad($w['CardNo'], 5, '0', STR_PAD_LEFT),
                 $w['FirstName'],
                 $w['FirstName'],
                 $w['LastName'],
+                /*
+                $addr1,
+                $addr2,
+                $w['city'],
+                $w['state'],
+                $w['zip'],
+                */
                 $w['email_1'],
             );
             if (!filter_var($record[4], FILTER_VALIDATE_EMAIL)) {
